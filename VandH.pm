@@ -1,9 +1,12 @@
 package Geo::Coordinates::VandH;
 use strict;
 use Math::Trig;
+use Math::Complex; #fixes a few one-off problems with negative square roots
 use vars qw($VERSION);
 
-$VERSION = '1.00';
+
+
+$VERSION = '1.01';
 
 sub new {
     my $package = shift;

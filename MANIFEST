@@ -1,6 +1,7 @@
 Makefile.PL
 MANIFEST
 README
+CHANGES
 t/Geo-Coordinates-VandH.t
 VandH.pm
 vhtest.pl

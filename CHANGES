@@ -1,0 +1,6 @@
+Convert-VH version 1.01
+=======================
+
+	1.0 release, initial release;
+        1.01 release, fixes VandH.pm to use Math::Complex - some V and H coordinates were coming out with negative square root errors, this fixes that.
+
