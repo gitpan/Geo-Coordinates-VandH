@@ -1,4 +1,4 @@
-Convert-VH version 1.01
+Convert-VH version 1.10
 =======================
 
 The README is used to introduce the module and provide instructions on
@@ -11,7 +11,9 @@ Currently this package only supports the translation of V+H to Lat/Long.
 Results are returned in decimal degrees.
 Future versions will do mileage calculation between V+H coordinates, and convert Lat/Long to V+H coordinates.
 	1.0 release, initial release;
-        1.01 release, fixes VandH.pm to use Math::Complex - some V and H coordinates were coming out with negative square root errors, this fixes that.
+        1.01 release, fixes VandH.pm to use Math::Complex - some V and H coordinates were coming out with negative square root errors, this fixes that.;
+	1.10 release, Adds distance calculations. Results are in miles;
+		
 
 
 INSTALLATION

@@ -6,13 +6,44 @@ use vars qw($VERSION);
 
 
 
-$VERSION = '1.01';
+$VERSION = '1.10';
 
 sub new {
     my $package = shift;
     return bless({}, $package);
 };
 	   
+sub distance {
+	my $self = shift;
+	my $v1;
+	my $h1;
+	my $v2;
+	my $h2;
+	my $miles;
+	my $vd;
+	my $hd;
+	my $sum;
+	my $count;
+	($v1,$h1,$v2,$h2) = @_;
+ 	$vd=$v1-$v2;
+	if ($vd < 0)  { $vd=$vd*-1; };
+	$hd=$h1-$h2;
+	if ($hd < 0)  { $hd=$hd*-1; };
+ 	$vd=$vd/3;
+	$hd=$hd/3;
+	$count=1;	
+	while (($vd**2+$hd**2) > 1777) {
+	$vd=$vd/3;
+	$hd=$hd/3;
+	$count++;
+	};
+	$sum=$vd**2+$hd**2;
+	$sum = $sum * ( 0.1 * (9**$count));
+	$miles=sqrt($sum);
+	#round up to next greatest mile
+	if (($miles-int($miles)) > 0) { $miles=int($miles)+1; };
+	return $miles;
+	};
 
 sub vh2ll {
 	my $self = shift;
@@ -100,13 +131,18 @@ Geo::Coordinates::VandH - Convert and Manipulate telco V and H coordinates
   $blah=new Geo::Coordinates::VandH;
   ($lat,$lon) = $blah->vh2ll(5498,2895);
   printf "%lf,%lf\n",$lat,$lon;
-                                                                                
+ 
+ To find the mileage between 5498,2895 and 5527,2873 in miles:
+ 
+  use Geo::Coordinates::VandH;
+  $blah=new Geo::Coordinates::VandH;
+  printf "Distance between Pontiac, MI and Southfield, MI is approximately: %d miles\n",$blah->distance(5498,2895,5527,2873);
                                                                                 
 =head1 DESCRIPTION
                                                                                
-      Currently this package only supports the translation of V+H to Lat/Long.
-      Results are returned in decimal degrees.
-      Future versions will do mileage calculation between V+H coordinates, and convert Lat/Long to V+H coordinates.
+      Currently this package supports the translation of V+H to Lat/Long, and mileage calculations between two V+H coordinates.
+      Results are returned in decimal degrees for V+H to Lat/Long, and Miles for distance.
+      Future versions will convert Lat/Long to V+H coordinates.
                                                                                 
 =head1 AUTHOR
                                                                                 
