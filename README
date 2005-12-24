@@ -1,4 +1,4 @@
-Convert-VH version 1.10
+Convert-VH version 1.11
 =======================
 
 The README is used to introduce the module and provide instructions on
@@ -13,7 +13,7 @@ Future versions will do mileage calculation between V+H coordinates, and convert
 	1.0 release, initial release;
         1.01 release, fixes VandH.pm to use Math::Complex - some V and H coordinates were coming out with negative square root errors, this fixes that.;
 	1.10 release, Adds distance calculations. Results are in miles;
-		
+ 	1.11 release, fixes prereq_pm directive in Makefile.PL (closes: 16722)		
 
 
 INSTALLATION
@@ -34,7 +34,7 @@ This module requires these other modules and libraries:
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2004 by Paul Timmins 
+Copyright (C) 2005 by Paul Timmins 
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.2 or,
